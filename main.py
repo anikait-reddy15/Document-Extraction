@@ -2,18 +2,23 @@ import fitz  # PyMuPDF
 import google.generativeai as genai
 import json
 import re
+import streamlit as st
 from dotenv import load_dotenv
 import os
+from io import BytesIO
 
+# Load environment variables
 load_dotenv()
 
-def extract_raw_text(pdf_path):
-    doc = fitz.open(pdf_path)
+# Extract raw text from PDF
+def extract_raw_text_from_file(uploaded_file):
+    doc = fitz.open(stream=uploaded_file.read(), filetype="pdf")
     full_text = ""
     for page in doc:
         full_text += page.get_text("text") + "\n\n"
     return full_text
 
+# Prepare Gemini prompt
 def prepare_prompt(raw_text):
     prompt = f"""
 Extract the key-value pairs and table information from the following document text.
@@ -42,39 +47,48 @@ Output example:
 """
     return prompt
 
+# Call Gemini API
 def call_gemini_api(prompt, api_key):
     genai.configure(api_key=api_key)
 
-    # Use Gemini Pro with the GENERATIVE TEXT model
     model = genai.GenerativeModel(model_name="models/gemini-2.0-flash")
-
     response = model.generate_content(prompt)
 
-    # Clean Markdown formatting if present
     response_text = response.text.strip()
     response_text = re.sub(r"^```json|```$", "", response_text).strip()
-
     return response_text
 
+# Streamlit UI
 def main():
-    PDF_PATH = "PDF1.pdf"
-    API_KEY =   os.getenv("GEMINI_API_KEY")
+    st.set_page_config(page_title="PDF to JSON Extractor with Gemini", layout="centered")
+    st.title("PDF to Structured JSON Extractor")
+    st.write("Upload a PDF document, and Gemini will extract structured key-value pairs and table data.")
 
-    raw_text = extract_raw_text(PDF_PATH)
-    prompt = prepare_prompt(raw_text)
-    json_text = call_gemini_api(prompt, API_KEY)
+    api_key = os.getenv("GEMINI_API_KEY")
 
-    print("Extracted JSON:\n")
-    print(json_text)
+    uploaded_file = st.file_uploader("Choose a PDF file", type="pdf")
 
-    # Save JSON output if valid
-    try:
-        parsed = json.loads(json_text)
-        with open("output.json", "w", encoding="utf-8") as f:
-            json.dump(parsed, f, indent=4, ensure_ascii=False)
-        print("\nData saved to output.json")
-    except json.JSONDecodeError:
-        print("\nWarning: The output is not valid JSON.")
+    if uploaded_file and st.button("Extract Data"):
+        with st.spinner("Extracting text and calling Gemini..."):
+            raw_text = extract_raw_text_from_file(uploaded_file)
+            prompt = prepare_prompt(raw_text)
+            json_text = call_gemini_api(prompt, api_key)
+
+        st.subheader("Extracted JSON:")
+        st.code(json_text, language='json')
+
+        # Attempt to parse and allow download
+        try:
+            parsed_json = json.loads(json_text)
+            json_bytes = json.dumps(parsed_json, indent=4, ensure_ascii=False).encode("utf-8")
+            st.download_button(
+                label="Download JSON",
+                data=json_bytes,
+                file_name="extracted_output.json",
+                mime="application/json"
+            )
+        except json.JSONDecodeError:
+            st.warning("The output is not valid JSON.")
 
 if __name__ == "__main__":
     main()

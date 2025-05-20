@@ -1,4 +1,4 @@
-{
+    {
     "PO Number": "0001253",
     "Date": "01/01/2022",
     "Company Name": "CONSTRUCTION MASTERS",
@@ -6,38 +6,41 @@
         {
             "Service Description": "SERVICES",
             "Qty": "1",
-            "Price [per hour]": "50.00$",
+            "Price": "50.00$",
             "TOTAL PRICE": "800.00$"
         },
         {
             "Service Description": "SERVICES",
             "Qty": "2",
-            "Price [per hour]": "105.00$",
+            "Price": "105.00$",
             "TOTAL PRICE": "2,520.00$"
         },
         {
             "Service Description": "SERVICES",
             "Qty": "3",
-            "Price [per hour]": "30.00$",
+            "Price": "30.00$",
             "TOTAL PRICE": "240.00$"
         },
         {
             "Service Description": "SERVICES",
             "Qty": "4",
-            "Price [per hour]": "50.00$",
+            "Price": "50.00$",
             "TOTAL PRICE": "400.00$"
         },
         {
             "Service Description": "SERVICES",
             "Qty": "5",
-            "Price [per hour]": "25.00$",
+            "Price": "25.00$",
             "TOTAL PRICE": "1,200.00$"
         },
         {
             "Service Description": "SERVICES",
             "Qty": "6",
-            "Price [per hour]": "20.00$",
+            "Price": "20.00$",
             "TOTAL PRICE": "640.00$"
+        },
+        {
+            "TOTAL SERVICES": "5,800.00$"
         },
         {
             "Service Description": "MATERIALS",
@@ -94,10 +97,18 @@
             "Qty": "1",
             "Price": "2,500.00$",
             "TOTAL PRICE": "2500"
+        },
+        {
+            "TOTAL MATERIALS": "33,090.00$"
+        },
+        {
+            "Total Job Cost": "38,890.00$"
+        },
+        {
+            "TAX": "10%"
+        },
+        {
+            "TOTAL": "42,779.00$"
         }
-    ],
-    "TOTAL SERVICES": "5,800.00$",
-    "TOTAL MATERIALS": "33,090.00$",
-    "TAX": "10%",
-    "Total Job Cost": "42,779.00$"
+    ]
 }
