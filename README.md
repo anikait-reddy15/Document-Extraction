@@ -22,11 +22,3 @@ This Streamlit app allows users to upload a PDF document and automatically extra
 - dotenv for environment variable management
 
 ---
-
-## Setup Instructions
-
-### 1. Clone the repository
-```bash
-git clone https://github.com/yourusername/pdf-json-extractor.git
-cd pdf-json-extractor
-
