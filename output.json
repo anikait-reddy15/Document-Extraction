@@ -1,0 +1,103 @@
+{
+    "PO Number": "0001253",
+    "Date": "01/01/2022",
+    "Company Name": "CONSTRUCTION MASTERS",
+    "List Items": [
+        {
+            "Service Description": "SERVICES",
+            "Qty": "1",
+            "Price [per hour]": "50.00$",
+            "TOTAL PRICE": "800.00$"
+        },
+        {
+            "Service Description": "SERVICES",
+            "Qty": "2",
+            "Price [per hour]": "105.00$",
+            "TOTAL PRICE": "2,520.00$"
+        },
+        {
+            "Service Description": "SERVICES",
+            "Qty": "3",
+            "Price [per hour]": "30.00$",
+            "TOTAL PRICE": "240.00$"
+        },
+        {
+            "Service Description": "SERVICES",
+            "Qty": "4",
+            "Price [per hour]": "50.00$",
+            "TOTAL PRICE": "400.00$"
+        },
+        {
+            "Service Description": "SERVICES",
+            "Qty": "5",
+            "Price [per hour]": "25.00$",
+            "TOTAL PRICE": "1,200.00$"
+        },
+        {
+            "Service Description": "SERVICES",
+            "Qty": "6",
+            "Price [per hour]": "20.00$",
+            "TOTAL PRICE": "640.00$"
+        },
+        {
+            "Service Description": "MATERIALS",
+            "Item Description": "Bricks",
+            "Qty": "5000",
+            "Price": "1.70$",
+            "TOTAL PRICE": "8,500.00$"
+        },
+        {
+            "Service Description": "MATERIALS",
+            "Item Description": "Clay",
+            "Qty": "4",
+            "Price": "150.00$",
+            "TOTAL PRICE": "600.00$"
+        },
+        {
+            "Service Description": "MATERIALS",
+            "Item Description": "Wood",
+            "Qty": "150",
+            "Price": "100.00$",
+            "TOTAL PRICE": "15,000.00$"
+        },
+        {
+            "Service Description": "MATERIALS",
+            "Item Description": "Electrical cables & wiring",
+            "Qty": "100",
+            "Price": "2.10$",
+            "TOTAL PRICE": "210.00$"
+        },
+        {
+            "Service Description": "MATERIALS",
+            "Item Description": "Ceramics",
+            "Qty": "100",
+            "Price": "10.00$",
+            "TOTAL PRICE": "1,000.00$"
+        },
+        {
+            "Service Description": "MATERIALS",
+            "Item Description": "Cement",
+            "Qty": "600",
+            "Price": "5.80$",
+            "TOTAL PRICE": "3,480.00$"
+        },
+        {
+            "Service Description": "MATERIALS",
+            "Item Description": "Windows",
+            "Qty": "10",
+            "Price": "180.00$",
+            "TOTAL PRICE": "1,800.00$"
+        },
+        {
+            "Service Description": "MATERIALS",
+            "Item Description": "Miscellaneous",
+            "Qty": "1",
+            "Price": "2,500.00$",
+            "TOTAL PRICE": "2500"
+        }
+    ],
+    "TOTAL SERVICES": "5,800.00$",
+    "TOTAL MATERIALS": "33,090.00$",
+    "TAX": "10%",
+    "Total Job Cost": "42,779.00$"
+}
